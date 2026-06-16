@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0e0b18"/>
+      <stop offset="100%" stop-color="#05030a"/>
+    </radialGradient>
+    <radialGradient id="aura2" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3b0764" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#1e0a3c" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#05030a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gemTop2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ede9fe"/>
+      <stop offset="100%" stop-color="#6d28d9" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="gemLeft2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5b21b6"/>
+      <stop offset="100%" stop-color="#1e0a3c"/>
+    </linearGradient>
+    <linearGradient id="gemRight2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2e1065"/>
+      <stop offset="100%" stop-color="#0a0414"/>
+    </linearGradient>
+    <linearGradient id="voidText2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f3ff"/>
+      <stop offset="50%" stop-color="#e9d5ff"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="nftText2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="ringGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.7"/>
+      <stop offset="50%" stop-color="#4c1d95" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#a78bfa" stop-opacity="0.6"/>
+    </linearGradient>
+    <filter id="glow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+    <filter id="tipGlow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feComposite in="SourceGraphic" in2="b" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- BG -->
+  <rect width="800" height="800" rx="48" fill="url(#bg2)"/>
+
+  <!-- Aura -->
+  <ellipse cx="400" cy="355" rx="290" ry="260" fill="url(#aura2)"/>
+
+  <!-- Rings -->
+  <circle cx="400" cy="340" r="224" fill="none" stroke="url(#ringGrad2)" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="400" cy="340" r="180" fill="none" stroke="url(#ringGrad2)" stroke-width="1" opacity="0.3"/>
+
+  <!-- Orbit dots -->
+  <circle cx="400" cy="116" r="5"   fill="#a78bfa" opacity="0.8"/>
+  <circle cx="624" cy="340" r="4"   fill="#7c3aed" opacity="0.6"/>
+  <circle cx="400" cy="564" r="4"   fill="#6d28d9" opacity="0.5"/>
+  <circle cx="176" cy="340" r="5"   fill="#a78bfa" opacity="0.7"/>
+
+  <!-- GEM shadow -->
+  <polygon points="400,164 500,252 500,408 400,496 300,408 300,252"
+           fill="#0a0218" opacity="0.6" transform="translate(6,8)"/>
+
+  <!-- GEM facets -->
+  <polygon points="400,164 500,252 500,408 400,496 400,316" fill="url(#gemRight2)"/>
+  <polygon points="400,164 300,252 300,408 400,496 400,316" fill="url(#gemLeft2)"/>
+  <polygon points="400,164 500,252 400,316 300,252"          fill="url(#gemTop2)"/>
+
+  <!-- Outline -->
+  <polygon points="400,164 500,252 500,408 400,496 300,408 300,252"
+           fill="none" stroke="#7c3aed" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- Inner glow -->
+  <ellipse cx="400" cy="324" rx="52" ry="60" fill="#4c1d95" opacity="0.3"/>
+
+  <!-- Edge highlights -->
+  <line x1="400" y1="164" x2="500" y2="252" stroke="#ede9fe" stroke-width="2"   opacity="0.7"/>
+  <line x1="400" y1="164" x2="300" y2="252" stroke="#c4b5fd" stroke-width="1.5" opacity="0.5"/>
+  <line x1="400" y1="164" x2="400" y2="316" stroke="#ddd6fe" stroke-width="1.2" opacity="0.5"/>
+
+  <!-- Top tip -->
+  <circle cx="400" cy="164" r="10" fill="#ede9fe" opacity="0.8" filter="url(#tipGlow2)"/>
+  <circle cx="400" cy="164" r="4"  fill="#ffffff" opacity="1"/>
+
+  <!-- Bottom tip -->
+  <circle cx="400" cy="496" r="5" fill="#6d28d9" opacity="0.6"/>
+
+  <!-- Sparkle top-right -->
+  <g transform="translate(512,180)" opacity="0.75" filter="url(#tipGlow2)">
+    <line x1="0" y1="-14" x2="0" y2="14"  stroke="#c4b5fd" stroke-width="2"/>
+    <line x1="-14" y1="0" x2="14" y2="0"  stroke="#c4b5fd" stroke-width="2"/>
+    <line x1="-8" y1="-8" x2="8" y2="8"   stroke="#c4b5fd" stroke-width="1"/>
+    <line x1="8"  y1="-8" x2="-8" y2="8"  stroke="#c4b5fd" stroke-width="1"/>
+  </g>
+
+  <!-- Sparkle bottom-left -->
+  <g transform="translate(288,440)" opacity="0.35">
+    <line x1="0" y1="-8" x2="0" y2="8"  stroke="#7c3aed" stroke-width="1.5"/>
+    <line x1="-8" y1="0" x2="8" y2="0"  stroke="#7c3aed" stroke-width="1.5"/>
+  </g>
+
+  <!-- Divider -->
+  <line x1="180" y1="552" x2="620" y2="552" stroke="url(#nftText2)" stroke-width="1.2" opacity="0.4"/>
+
+  <!-- NFT -->
+  <text x="400" y="596"
+        font-family="'Gill Sans MT', Calibri, 'Century Gothic', sans-serif"
+        font-size="24" font-weight="300"
+        letter-spacing="22"
+        text-anchor="middle"
+        fill="url(#nftText2)" opacity="0.85">NFT</text>
+
+  <!-- VOID -->
+  <text x="400" y="700"
+        font-family="'Palatino Linotype', 'Book Antiqua', Palatino, serif"
+        font-size="108" font-weight="700"
+        letter-spacing="20"
+        text-anchor="middle"
+        fill="url(#voidText2)" filter="url(#glow2)">VOID</text>
+
+  <!-- Bottom dots -->
+  <circle cx="320" cy="740" r="3" fill="#4c1d95" opacity="0.5"/>
+  <circle cx="400" cy="746" r="3" fill="#7c3aed" opacity="0.4"/>
+  <circle cx="480" cy="740" r="3" fill="#4c1d95" opacity="0.5"/>
+
+  <!-- Corner marks -->
+  <line x1="56"  y1="56"  x2="96"  y2="56"  stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="56"  y1="56"  x2="56"  y2="96"  stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="744" y1="56"  x2="704" y2="56"  stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="744" y1="56"  x2="744" y2="96"  stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="56"  y1="744" x2="96"  y2="744" stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="56"  y1="744" x2="56"  y2="704" stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="744" y1="744" x2="704" y2="744" stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+  <line x1="744" y1="744" x2="744" y2="704" stroke="#4c1d95" stroke-width="1.5" opacity="0.45"/>
+</svg>
