@@ -1,6 +1,8 @@
 'use client';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
+import { useEffect } from 'react';
+import { supabase } from '../../lib/supabase';
 
 const nfts = [
   { id: '1', title: 'VOID #001', price: '0.5 ETH', image: 'https://picsum.photos/800/800?random=1', description: 'The first piece of the NFT VOID universe. A journey into the unknown.', story: 'Born from the void, this piece represents the beginning of an endless digital journey. The darkness holds secrets waiting to be discovered.' },
@@ -14,6 +16,14 @@ const nfts = [
 export default function NFTDetail() {
   const params = useParams();
   const nft = nfts.find(n => n.id === params.id);
+
+  useEffect(() => {
+    if (!nft) return;
+    const trackView = async () => {
+     await supabase.rpc('increment_nft_view', { row_id: nft.id });
+    };
+    trackView();
+  }, [nft]);
 
   if (!nft) return (
     <div className="min-h-screen flex items-center justify-center" style={{background: '#050505'}}>
