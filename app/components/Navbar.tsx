@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import WalletButton from './WalletButton';
 
@@ -18,6 +19,7 @@ export default function Navbar() {
         <a href="#gallery" className="text-gray-400 hover:text-purple-400 transition-colors text-sm tracking-widest">GALLERY</a>
         <a href="#story" className="text-gray-400 hover:text-purple-400 transition-colors text-sm tracking-widest">STORY</a>
         <a href="#about" className="text-gray-400 hover:text-purple-400 transition-colors text-sm tracking-widest">ABOUT</a>
+        <Link href="/blog" className="text-gray-400 hover:text-purple-400 transition-colors text-sm tracking-widest">BLOG</Link>
         <a href="#contact" className="text-gray-400 hover:text-purple-400 transition-colors text-sm tracking-widest">CONTACT</a>
         <WalletButton />
       </div>
@@ -36,6 +38,7 @@ export default function Navbar() {
           <a href="#gallery" onClick={() => setMenuOpen(false)} className="text-xs tracking-widest px-8 py-3" style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>GALLERY</a>
           <a href="#story" onClick={() => setMenuOpen(false)} className="text-xs tracking-widest px-8 py-3" style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>STORY</a>
           <a href="#about" onClick={() => setMenuOpen(false)} className="text-xs tracking-widest px-8 py-3" style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>ABOUT</a>
+          <Link href="/blog" onClick={() => setMenuOpen(false)} className="text-xs tracking-widest px-8 py-3" style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>BLOG</Link>
           <a href="#contact" onClick={() => setMenuOpen(false)} className="text-xs tracking-widest px-8 py-3" style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>CONTACT</a>
           <WalletButton />
         </div>
