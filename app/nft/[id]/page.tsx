@@ -31,9 +31,38 @@ export default function NFTDetail() {
     </div>
   );
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'VisualArtwork',
+    name: nft.title,
+    description: nft.description,
+    image: nft.image,
+    creator: {
+      '@type': 'Person',
+      name: 'Mohammad Hossein Lamizadeh',
+    },
+    offers: {
+      '@type': 'Offer',
+      price: nft.price.split(' ')[0],
+      priceCurrency: 'ETH',
+      availability: 'https://schema.org/InStock',
+    },
+    artform: 'Digital Art',
+    artMedium: 'NFT',
+    isPartOf: {
+      '@type': 'Collection',
+      name: 'NFT VOID Collection',
+    },
+  };
+
   return (
     <div className="min-h-screen" style={{background: '#050505'}}>
-      
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
       <nav className="fixed top-0 w-full z-50 px-8 py-4 flex items-center justify-between"
         style={{background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(10px)', borderBottom: '1px solid #3b0764'}}>
         <Link href="/" className="text-white text-sm tracking-widest hover:text-purple-400">← BACK TO GALLERY</Link>
@@ -44,7 +73,12 @@ export default function NFTDetail() {
         <div className="grid md:grid-cols-2 gap-16 items-start">
           
           <div>
-            <img src={nft.image} alt={nft.title} className="w-full" style={{border: '1px solid #1e0a3c'}}/>
+            <img
+              src={nft.image}
+              alt={`${nft.title} - Cyberpunk NFT digital artwork from NFT VOID collection, priced at ${nft.price}`}
+              className="w-full"
+              style={{border: '1px solid #1e0a3c'}}
+            />
           </div>
 
           <div className="space-y-8">
