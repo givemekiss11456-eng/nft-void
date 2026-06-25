@@ -104,6 +104,12 @@ export default function NFTDetail() {
                 BUY ON OPENSEA
               </a>
             </div>
+
+            <div className="pt-4 text-center">
+              <Link href="/blog" className="text-sm hover:text-purple-400 transition-colors" style={{color: '#7c3aed'}}>
+                Read the story behind NFT VOID →
+              </Link>
+            </div>
           </div>
         </div>
       </div>

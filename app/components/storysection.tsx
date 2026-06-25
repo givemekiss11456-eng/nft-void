@@ -1,5 +1,6 @@
 'use client';
 import ScrollReveal from './ScrollReveal';
+import { useTheme } from './ThemeProvider';
 
 const lines = [
   {
@@ -33,13 +34,19 @@ const lines = [
 ];
 
 export default function StorySection() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <section id="story" className="py-24 px-8" style={{background: '#07040e'}}>
+    <section id="story" className="py-24 px-8"
+      style={{ background: isDark ? '#07040e' : '#fdf4ff', transition: 'background 0.3s ease' }}>
       <div className="max-w-3xl mx-auto">
         <ScrollReveal>
-          <p className="text-center text-sm tracking-[0.5em] mb-3" style={{color: '#7c3aed'}}>LORE</p>
-          <h2 className="text-center text-4xl font-bold mb-4 text-white tracking-widest">THE STORY</h2>
-          <p className="text-center text-sm mb-16 tracking-widest" style={{color: '#4c1d95'}}>
+          <p className="text-center text-sm tracking-[0.5em] mb-3" style={{ color: '#7c3aed' }}>LORE</p>
+          <h2 className="text-center text-4xl font-bold mb-4 tracking-widest"
+            style={{ color: isDark ? '#ffffff' : '#111111' }}>THE STORY</h2>
+          <p className="text-center text-sm mb-16 tracking-widest"
+            style={{ color: isDark ? '#4c1d95' : '#7c3aed' }}>
             ART BORN BETWEEN HUMAN AND MACHINE
           </p>
         </ScrollReveal>
@@ -47,8 +54,12 @@ export default function StorySection() {
         <div className="space-y-10">
           {lines.map((line, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <div style={{borderLeft: '2px solid #3b0764', paddingLeft: '1.5rem'}}>
-                <p className="text-sm leading-relaxed mb-3" style={{color: '#e9d5ff'}}>
+              <div style={{
+                borderLeft: `2px solid ${isDark ? '#3b0764' : '#a78bfa'}`,
+                paddingLeft: '1.5rem'
+              }}>
+                <p className="text-sm leading-relaxed mb-3"
+                  style={{ color: isDark ? '#e9d5ff' : '#333333' }}>
                   {line.en}
                 </p>
                 <p className="text-sm leading-relaxed" style={{
@@ -66,12 +77,11 @@ export default function StorySection() {
         <ScrollReveal delay={0.5}>
           <div className="mt-16 text-center">
             <div className="inline-block px-8 py-3 text-xs tracking-widest transition-all"
-              style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>
+              style={{ border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px' }}>
               NFT VOID — EST. 2026
             </div>
           </div>
         </ScrollReveal>
-
       </div>
     </section>
   );

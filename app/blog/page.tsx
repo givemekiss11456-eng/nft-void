@@ -12,13 +12,13 @@ const posts = [
     slug: 'why-cyberpunk',
     title: 'Why Cyberpunk?',
     date: 'June 2026',
-    excerpt: 'Exploring the aesthetic choices behind the VOID collection — neon, darkness, and the space between human and machine.',
+    excerpt: 'Exploring the aesthetic choices behind the VOID collection.',
   },
   {
     slug: 'building-in-public',
     title: 'Building NFT VOID in Public',
     date: 'June 2026',
-    excerpt: 'A behind-the-scenes look at building an NFT platform from scratch as a solo developer.',
+    excerpt: 'A behind-the-scenes look at building an NFT platform from scratch.',
   },
 ];
 
@@ -46,6 +46,14 @@ export default function BlogPage() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-gray-400 mb-4">Explore the full collection</p>
+          <Link href="/#gallery" className="inline-block px-8 py-3 text-sm tracking-widest rounded-xl"
+            style={{border: '1px solid #7c3aed', color: '#a78bfa'}}>
+            VIEW GALLERY
+          </Link>
         </div>
       </div>
     </div>

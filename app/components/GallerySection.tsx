@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
+import { useTheme } from './ThemeProvider';
 
 const nfts = [
   { id: '1', title: 'VOID #001', price: '0.5 ETH', image: 'https://picsum.photos/400/400?random=1', alt: 'VOID #001 - Cyberpunk NFT artwork featuring neon-lit digital character from NFT VOID collection' },
@@ -13,20 +14,41 @@ const nfts = [
 ];
 
 export default function GallerySection() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
-    <section id="gallery" className="py-24 px-8" style={{background: '#05030a'}}>
+    <section
+      id="gallery"
+      className="py-24 px-8"
+      style={{ background: isDark ? '#05030a' : '#f5f3ff' }}
+    >
       <div className="max-w-6xl mx-auto">
         <ScrollReveal>
-          <p className="text-center text-sm tracking-[0.5em] mb-3" style={{color: '#7c3aed'}}>COLLECTION</p>
-          <h2 className="text-center text-5xl font-bold mb-16 text-white tracking-widest">THE GALLERY</h2>
+          <p className="text-center text-sm tracking-[0.5em] mb-3" style={{ color: '#7c3aed' }}>COLLECTION</p>
+          <h2
+            className="text-center text-5xl font-bold mb-16 tracking-widest"
+            style={{ color: isDark ? '#ffffff' : '#111111' }}
+          >
+            THE GALLERY
+          </h2>
         </ScrollReveal>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {nfts.map((nft, index) => (
             <ScrollReveal key={nft.id} delay={index * 0.1}>
               <Link href={`/nft/${nft.id}`}>
-                <div className="group cursor-pointer" style={{border: '1px solid #1e0a3c', background: '#0a0414', borderRadius: '12px', overflow: 'hidden'}}>
-                  <div className="overflow-hidden relative" style={{aspectRatio: '1/1'}}>
+                <div
+                  className="group cursor-pointer"
+                  style={{
+                    border: `1px solid ${isDark ? '#1e0a3c' : '#d8b4fe'}`,
+                    background: isDark ? '#0a0414' : '#ffffff',
+                    borderRadius: '12px',
+                    overflow: 'hidden',
+                    transition: 'background 0.3s ease, border-color 0.3s ease',
+                  }}
+                >
+                  <div className="overflow-hidden relative" style={{ aspectRatio: '1/1' }}>
                     <Image
                       src={nft.image}
                       alt={nft.alt}
@@ -36,11 +58,22 @@ export default function GallerySection() {
                     />
                   </div>
                   <div className="p-5">
-                    <h3 className="text-white font-bold text-lg tracking-widest mb-2">{nft.title}</h3>
+                    <h3
+                      className="font-bold text-lg tracking-widest mb-2"
+                      style={{ color: isDark ? '#ffffff' : '#111111' }}
+                    >
+                      {nft.title}
+                    </h3>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm" style={{color: '#a78bfa'}}>{nft.price}</span>
-                      <span className="text-xs tracking-widest px-4 py-2 transition-all"
-                        style={{border: '1px solid #7c3aed', color: '#a78bfa', borderRadius: '9999px'}}>
+                      <span className="text-sm" style={{ color: '#a78bfa' }}>{nft.price}</span>
+                      <span
+                        className="text-xs tracking-widest px-4 py-2 transition-all"
+                        style={{
+                          border: '1px solid #7c3aed',
+                          color: '#a78bfa',
+                          borderRadius: '9999px',
+                        }}
+                      >
                         VIEW DETAILS
                       </span>
                     </div>
