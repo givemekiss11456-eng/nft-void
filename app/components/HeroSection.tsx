@@ -27,30 +27,33 @@ export default function HeroSection() {
         <p className="text-xs md:text-sm tracking-[0.5em] mb-4" style={{ color: '#7c3aed' }}>
           WELCOME TO
         </p>
+
         <h1
           className="text-5xl md:text-9xl font-bold mb-6"
-          style={{
-            background: isDark
-              ? 'linear-gradient(135deg, #f5f3ff, #c4b5fd)'
-              : 'linear-gradient(135deg, #4c1d95, #7c3aed)',
+          style={isDark ? {
+            background: 'linear-gradient(135deg, #f5f3ff, #c4b5fd)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
+          } : {
+            color: '#4c1d95',
           }}
         >
           NFT VOID
         </h1>
+
         <p
           className="text-sm md:text-lg mb-10 tracking-widest"
           style={{ color: isDark ? '#9ca3af' : '#555555' }}
         >
           THE ULTIMATE NFT GALLERY
         </p>
+
         <a
           href="#gallery"
           className="px-8 py-4 text-xs md:text-sm tracking-widest font-medium transition-all"
           style={{
             border: '1px solid #7c3aed',
-            color: '#a78bfa',
+            color: isDark ? '#a78bfa' : '#7c3aed',
             borderRadius: '9999px',
           }}
           onMouseEnter={e => (e.currentTarget.style.background = isDark ? '#3b0764' : '#ede9fe')}
